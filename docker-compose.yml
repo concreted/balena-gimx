@@ -1,0 +1,14 @@
+version: '2'
+services:
+  gimx: # this is named "main" for now to ease migration to multicontainer.
+    build: ./gimx
+    restart: always
+    privileged: true
+    network_mode: "host"
+    command: ["/bin/bash", "-c", "sleep infinity"]
+    labels:
+      io.resin.features.kernel-modules: '1'
+      io.resin.features.firmware: '1'
+      io.resin.features.dbus: '1'
+      io.resin.features.supervisor-api: '1'
+      io.resin.features.resin-api: '1'
